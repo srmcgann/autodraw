@@ -70,7 +70,7 @@
   </body>
   <script>
     showHotkeys=()=>{
-      alert("W/A/S/D - movement\nARROW KEYS - look\nSHIFT - increased speed\nF - toggle floor\nG - toggle background\n\n  TRANSFORM  MODES\nM - move\nR - rotate\nL - scale/size\n\n  SELECT MODES\n1 - vertex\n2 - face\n3 - shape\n\n  MODIFIERS\nshift + rotate (mouse x)  = roll\nctrl + up/down arrows = move camera vertically\n\n  SPECIAL KEYS\nY - toggle \"y-lock\"\nshift + camera tool (mouse y) vertical movement\nshift + move shape = duplicate")
+      alert("W/A/S/D - movement\nARROW KEYS - look\nSHIFT - increased speed\nF - toggle floor, V - toggle viewfinder\nG - toggle background\n\n  TRANSFORM  MODES\nM - move\nR - rotate\nL - scale/size\n\n  SELECT MODES\n1 - vertex\n2 - face\n3 - shape\n\n  MODIFIERS\nshift + rotate (mouse x)  = roll\nctrl + up/down arrows = move camera vertically\n\n  SPECIAL KEYS\nY - toggle \"y-lock\"\nshift + camera tool (mouse y) vertical movement\nshift + move shape = duplicate")
     }
     document.fonts.onloadingdone=()=>{console.log('fonts loaded')}
     duration = 1000*240|0
