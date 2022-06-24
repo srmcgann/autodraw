@@ -46,15 +46,32 @@
       transform: translate(-50%,-50%);
       font-size: 24px;
     }
+		#hotkeys{
+      font-family: courier;
+			color: #fff;
+			font-size: 16px;
+			text-shadow: 1px 1px 1px #000;
+			background: #206;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+      top: 5px;
+			left: 5px;
+			position: fixed;
+			z-index: 20;
+    }
 	</style>
   </head>
   <body>
+	  <button id="hotkeys" onclick="showHotkeys()">hotkeys</button>
     <button onclick="Draw()" id="button">Draw</button>
     <div style="font-family: alice;position:absolute; z-index:-100">a</div>
     <canvas id="c"></canvas>
   </body>
   <script>
-
+    showHotkeys=()=>{
+      alert("W/A/S/D - movement\nARROW KEYS - look\nSHIFT - increased speed\nF - toggle floor\nG - toggle background\n\n  TRANSFORM  MODES\nM - move\nR - rotate\nL - scale/size\n\n  SELECT MODES\n1 - vertex\n2 - face\n3 - shape\n\n  MODIFIERS\nshift + rotate (mouse x)  = roll\nctrl + up/down arrows = move camera vertically\n\n  SPECIAL KEYS\nY - toggle \"y-lock\"\nshift + camera tool (mouse y) vertical movement\nshift + move shape = duplicate")
+    }
     document.fonts.onloadingdone=()=>{console.log('fonts loaded')}
     duration = 1000*240|0
     initialDelay = 3000
@@ -708,7 +725,11 @@
                   closeMenus()
                 break
                 case 'deleteShape':
-                  shps=shps.filter((v,i)=>!draggingShapes.filter(q=>q.indexOf(i)!=-1).length)
+                  shps=shps.filter(v=>{
+                    return !(v[v.length-1] || v[6].filter(q=>{
+                      return q[q.length-1] || (q.length && q.filter(n=>n[3]).length)
+                    }).length)
+                  })
                   draggingShapes=[]
                   closeMenus()
                 break
